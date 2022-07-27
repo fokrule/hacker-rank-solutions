@@ -1,26 +1,28 @@
 <?php
 
-function diagonalDifference($data) {
-    $firstDiagonal = 0;
-    $secondDiagonal = 0;
-    $n = 3;
-    for ($i=0;$i<3;$i++){
-        for($j=0;$j<3;$j++){
-            if ( $i == $j ) {
-                $firstDiagonal += $data[$i][$j];
-            }
-            if ( $i == $n - $j - 1 ) {
-                $secondDiagonal += $data[$i][$j];
-            }
-        }        
+function loop($maximumStar) {
+    echo "1. Right triangle:</br>";
+    for( $i=1; $i<=$maximumStar; $i++ ){
+        for ( $j=1; $j<=$i; $j++ ){
+            echo "*";
+        }
+        echo "<br/>";
     }
-    $result = $firstDiagonal - $secondDiagonal;
-    return abs($result);
+    echo "2. Pyramid:</br>";
+    $n = $maximumStar;
+    for ($i = 1; $i <= $n; $i++) {
+        for ($j = 1; $j <= $n; $j++) {
+            if($j<=($n-$i)){
+               echo "&nbsp";
+                  
+            }else {
+                echo "*";
+            }     
+        }
+        
+        echo "</br>";
+    } 
 }
-$data = [
-    [11,2,4],
-    [4,5,6],
-    [10,8,-12]
-];
-diagonalDifference($data);
+$data = 5;
+loop($data);
 ?>
