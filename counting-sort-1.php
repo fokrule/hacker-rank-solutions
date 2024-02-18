@@ -6,5 +6,5 @@ $newArray = array_fill(0,100, 0);
 foreach ($arr as $value) {
     $newArray[$value]++;
 }
-print_r($newArray);
+return $newArray;
 ?>
