@@ -1,15 +1,19 @@
 <?php
-$alphabet = range('a','z');
-print_r($alphabet);
-$string = strtolower("abcdefghijklmnopqrstuvwxyZ");
-for($i = 0; $i< strlen($string); $i++) {
-    if (in_array($string[$i],$alphabet)){
-        echo $string[$i];
-        echo "</br>";
-        $valueToRemove = array_search($string[$i], $alphabet);
-        unset($alphabet[$valueToRemove]);
+function calculateData($s) {
+    $alphabet = range('a','z');
+    $string = strtolower($s);
+    for($i = 0; $i< strlen($string); $i++) {
+        if (in_array($string[$i],$alphabet)){
+            $valueToRemove = array_search($string[$i], $alphabet);
+            unset($alphabet[$valueToRemove]);
+        }
+    }
+    if (count($alphabet)) {
+        return "not pangram";
+    }
+    else {
+        return "pangram";
     }
 }
-echo "</br>";
-print_r($alphabet);
+echo calculateData("We promptly judged antique ivory buckles for the next prize");
 ?>
